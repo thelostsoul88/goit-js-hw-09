@@ -17,7 +17,7 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    if (selectedDates[0].getTime() < options.defaultDate) {
+    if (selectedDates[0] < options.defaultDate) {
       Notiflix.Notify.failure('Please choose a date in the future');
     } else {
       startBtn.disabled = false;
@@ -54,8 +54,7 @@ function convertMs(ms) {
 function onStartTime(time) {
   let timerId = setInterval(() => {
     startBtn.disabled = true;
-    const dateNow = Date.now();
-    const leftTime = time - dateNow;
+    const leftTime = time - Date.now();
     if (leftTime <= 0) {
       clearInterval(timerId);
       return;
