@@ -19,12 +19,14 @@ const options = {
   onClose(selectedDates) {
     if (selectedDates[0] < options.defaultDate) {
       Notiflix.Notify.failure('Please choose a date in the future');
+      startBtn.disabled = true;
     } else {
       startBtn.disabled = false;
       const time = selectedDates[0].getTime();
       startBtn.addEventListener('click', () => {
         onStartTime(time);
-        startBtn.disabled = true;
+        btnStart.disabled = true;
+        return;
       });
     }
   },
