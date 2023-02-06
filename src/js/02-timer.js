@@ -25,7 +25,7 @@ const options = {
       const time = selectedDates[0].getTime();
       startBtn.addEventListener('click', () => {
         onStartTime(time);
-        btnStart.disabled = true;
+        startBtn.disabled = true;
         return;
       });
     }
